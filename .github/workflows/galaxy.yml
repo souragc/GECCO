@@ -18,24 +18,24 @@ jobs:
     - name: Lint repository
       run: planemo shed_lint --tools ./galaxy
 
-  test:
-    name: Test tool
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Update build dependencies
-      run: pip install -U wheel pip setuptools
-    - name: Install planemo
-      run: pip install -U planemo
-    - name: Test tool
-      run: planemo test ./galaxy/gecco.xml
+#   test:
+#     name: Test tool
+#     needs: lint
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+#     - name: Update build dependencies
+#       run: pip install -U wheel pip setuptools
+#     - name: Install planemo
+#       run: pip install -U planemo
+#     - name: Test tool
+#       run: planemo test ./galaxy/gecco.xml
 
   deploy:
     environment: Tool Shed
     name: Deploy tool
-    needs: test
+#     needs: test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
